@@ -1,2 +1,7 @@
 # sample_docker_php
-PHP の開発環境、Docker 化したサーバ環境の、サンプル Docker Compose です。
+Laravel 8 に関して、開発環境と Docker 化したサーバ環境のサンプル Docker Compose です。
+
+## 開発環境のセットアップ
+```bash
+docker-compose up -d
+```
