@@ -3,8 +3,3 @@ services:
   app:
     build:
       context: ./
-      target: develop
-    ports:
-      - "80:80"
-    volumes:
-      - ./:/var/www/html:cached
