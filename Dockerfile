@@ -18,7 +18,8 @@ RUN apt-get update && apt-get install -y \
 RUN localedef -i ja_JP -c -f UTF-8 -A /usr/share/locale/locale.alias ja_JP.UTF-8
 COPY ./docker-compose/php/my.ini /usr/local/etc/php/conf.d/
 RUN a2enmod rewrite
-ENV APACHE_DOCUMENT_ROOT /var/www/html/public
+ARG APACHE_DOCUMENT_ROOT=/var/www/html/laravel/public
+ENV APACHE_DOCUMENT_ROOT ${APACHE_DOCUMENT_ROOT}
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
 RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
 COPY ./docker-compose/php/001-my.conf /etc/apache2/sites-available/001-my.conf
